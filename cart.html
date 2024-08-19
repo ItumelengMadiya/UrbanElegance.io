@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Urban Elegance</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .cart {
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        img {
+            max-width: 100px; /* Make images responsive */
+            height: auto;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #checkoutButton {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #checkoutButton:hover {
+            background-color: #45a049;
+        }
+
+        /* Media Query for mobile devices */
+        @media (max-width: 768px) {
+            table, th, td {
+                display: block;
+                width: 100%;
+            }
+
+            th, td {
+                box-sizing: border-box;
+                padding: 10px;
+                text-align: center;
+            }
+
+            th {
+                background-color: #f2f2f2;
+                position: sticky;
+                top: 0;
+            }
+
+            img {
+                max-width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <nav>
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog.html">Shop</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Categories</a>
+                <div class="dropdown-content">
+                    <a href="#">Men</a>
+                    <a href="#">Women</a>
+                    <a href="#">Accessories</a>
+                </div>
+            </li>
+            <li><a href="cart.html">Cart <i class="fas fa-shopping-cart"></i></a></li>
+            <li class="search-container">
+                <input type="text" placeholder="Search...">
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+    <main>
+        <section class="cart">
+            <h2>Your Cart</h2>
+            <table id="cartTable">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cartItems">
+                    <!-- Cart items will be dynamically inserted here -->
+                </tbody>
+            </table>
+
+            <!-- Proceed to Checkout Button -->
+            <button id="checkoutButton" onclick="proceedToCheckout()">Proceed to Checkout</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Urban Elegance. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to load and display cart items from sessionStorage
+        function loadCart() {
+            const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cartItems');
+            let totalPrice = 0;
+
+            // Clear existing cart items
+            cartItemsContainer.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                const row = document.createElement('tr');
+                
+                // Create table cells for product name, image, price, and action
+                const nameCell = document.createElement('td');
+                nameCell.textContent = item.name;
+                
+                const imageCell = document.createElement('td');
+                const imgElement = document.createElement('img');
+                imgElement.src = item.image;
+                imgElement.alt = item.name;
+                imgElement.style.width = '100px';  // Adjust size as needed
+                imageCell.appendChild(imgElement);
+                
+                const priceCell = document.createElement('td');
+                priceCell.textContent = item.price;
+                
+                const actionCell = document.createElement('td');
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.onclick = () => removeFromCart(index);
+                actionCell.appendChild(removeButton);
+                
+                // Add the price to the total price
+                totalPrice += parseFloat(item.price.replace('R', ''));
+
+                // Append cells to the row
+                row.appendChild(nameCell);
+                row.appendChild(imageCell);
+                row.appendChild(priceCell);
+                row.appendChild(actionCell);
+                
+                // Append the row to the table body
+                cartItemsContainer.appendChild(row);
+            });
+
+            // Store total price in session storage
+            sessionStorage.setItem('totalPrice', totalPrice.toFixed(2));
+        }
+
+        // Function to remove an item from the cart
+        function removeFromCart(index) {
+            let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+            cart.splice(index, 1); // Remove item at the given index
+            sessionStorage.setItem('cart', JSON.stringify(cart)); // Update session storage
+            loadCart(); // Reload cart to reflect changes
+        }
+
+        // Function to proceed to checkout
+        function proceedToCheckout() {
+            const totalPrice = sessionStorage.getItem('totalPrice') || '0.00';
+            alert(`Your total is R${totalPrice}. Proceeding to checkout...`);
+            // Redirect to home page after checkout
+            window.location.href = 'index.html';
+        }
+
+        // Load the cart items on page load
+        document.addEventListener('DOMContentLoaded', loadCart);
+    </script>
+</body>
+</html>
+

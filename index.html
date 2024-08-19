@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Elegance</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* Basic reset */
+        body, h1, h2, p, a {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .hero {
+            background: url('images/background.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 25px;
+            color: white;
+            background-color: #4CAF50;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .cta-button:hover {
+            background-color: #45a049;
+        }
+
+        .about-store, .vision {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .about-store h2, .vision h2 {
+            margin-bottom: 15px;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .cta-button {
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 30px 10px;
+            }
+
+            .hero h1 {
+                font-size: 1.5em;
+            }
+
+            .hero p {
+                font-size: 0.9em;
+            }
+
+            .cta-button {
+                padding: 10px 15px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <nav>
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog.html">Shop</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Categories</a>
+                <div class="dropdown-content">
+                    <a href="#">Men</a>
+                    <a href="#">Women</a>
+                    <a href="#">Accessories</a>
+                </div>
+            </li>
+            <li><a href="cart.html">Cart <i class="fas fa-shopping-cart"></i></a></li>
+            <li class="search-container">
+                
+                <input type="text" placeholder="Search...">
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+    <main>
+        <section class="hero">
+            <h1>Welcome to Urban Elegance</h1>
+            <p>Discover the latest in fashion and style.</p>
+            <a href="catalog.html" class="cta-button">Shop Now</a>
+        </section>
+
+        <section class="about-store">
+            <h2>About Our Store</h2>
+            <p>Urban Elegance is your go-to destination for contemporary fashion, offering a curated selection of clothing, accessories, and more. Our store is dedicated to bringing you the latest trends and timeless pieces that embody elegance, quality, and style. Whether you're looking for everyday essentials or standout items for special occasions, Urban Elegance has something for everyone.</p>
+        </section>
+
+        <section class="vision">
+            <h2>Our Vision</h2>
+            <p>At Urban Elegance, our vision is to inspire confidence and individuality through fashion. We believe that what you wear should reflect who you are, and our mission is to provide our customers with the finest apparel and accessories that empower them to express their unique sense of style. Our commitment to quality, innovation, and customer satisfaction drives everything we do, as we strive to be a leading name in the fashion industry.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Urban Elegance. All rights reserved.</p>
+    </footer>
+</body>
+</html>
