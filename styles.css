@@ -5,11 +5,14 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
+
 /* CSS for Search Bar */
 .search-container {
     display: flex;
     align-items: center;
+    margin: 0 auto;
 }
 
 .search-container input[type="text"] {
@@ -26,11 +29,15 @@ body {
     border-color: #4CAF50;
 }
 
-
+/* Header */
 header {
     background-color: #333;
     color: #fff;
     padding: 1rem;
+    position: sticky; /* Sticky header */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .nav-list {
@@ -39,10 +46,11 @@ header {
     padding: 0;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap; /* Wrap nav items on smaller screens */
 }
 
 .nav-list li {
-    margin: 0 1rem;
+    margin: 0.5rem 1rem;
 }
 
 .nav-list a {
@@ -51,6 +59,7 @@ header {
     font-weight: bold;
 }
 
+/* Dropdown */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -82,10 +91,10 @@ header {
 
 /* Hero Section */
 .hero {
-    background-image: url('background.jpg');
+    background-image: url('images/background.jpg');
     background-size: cover;
     background-position: center;
-    padding: 5rem 0;
+    padding: 5rem 2rem; /* Adjust padding for better responsiveness */
     text-align: center;
     color: #fff;
 }
@@ -132,6 +141,9 @@ header {
     border: 1px solid #ddd;
     border-radius: 5px;
     text-align: center;
+    display: inline-block;
+    width: calc(33.333% - 2rem); /* Responsive product width */
+    box-sizing: border-box;
 }
 
 .product img {
@@ -242,12 +254,53 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1rem;
-    position: fixed;
+    position: relative; /* Changed to relative for better scrolling */
     width: 100%;
-    bottom: 0;
 }
 
 footer p {
     margin: 0;
     font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-list li {
+        margin: 0.5rem 0;
+    }
+
+    .product {
+        width: calc(50% - 2rem); /* Two products per row on medium screens */
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .product {
+        width: calc(100% - 2rem); /* One product per row on small screens */
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .search-container input[type="text"] {
+        width: 100%;
+    }
 }
