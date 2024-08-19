@@ -91,7 +91,7 @@ header {
 
 /* Hero Section */
 .hero {
-    background-image: url('images/background.jpg');
+    background-image: url('background.jpg');
     background-size: cover;
     background-position: center;
     padding: 5rem 2rem; /* Adjust padding for better responsiveness */
