@@ -7,6 +7,9 @@ body {
     color: #333;
     overflow-x: hidden; /* Prevent horizontal scroll */
     padding-top: 60px; /* Space for fixed header */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body takes at least the full viewport height */
 }
 
 /* Header styling */
@@ -37,6 +40,11 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
+}
+
+/* Main content section */
+main {
+    flex: 1; /* Allow main content to expand and push the footer down */
 }
 
 /* Cart section styling */
@@ -117,18 +125,6 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
-    position: relative; /* Adjusted to relative for proper placement */
     width: 100%;
-    bottom: 0;
-}
-
-/* Ensure footer is always at the bottom */
-html, body {
-    height: 100%;
-}
-
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    /* Removed position: absolute; to ensure proper placement */
 }
