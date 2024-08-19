@@ -6,310 +6,7 @@ body {
     background-color: #f4f4f4;
     color: #333;
     overflow-x: hidden; /* Prevent horizontal scroll */
-}
-
-/* CSS for Search Bar */
-.search-container {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-}
-
-.search-container input[type="text"] {
-    padding: 5px;
-    margin-left: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    outline: none;
-    font-size: 14px;
-    width: 200px;
-}
-
-.search-container input[type="text"]:focus {
-    border-color: #4CAF50;
-}
-
-/* Header */
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-    position: sticky; /* Sticky header */
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-.nav-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap; /* Wrap nav items on smaller screens */
-}
-
-.nav-list li {
-    margin: 0.5rem 1rem;
-}
-
-.nav-list a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Dropdown */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #333;
-    min-width: 160px;
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-size: 14px;
-}
-
-.dropdown-content a:hover {
-    background-color: #555;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Hero Section */
-.hero {
-    background-image: url('background.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 5rem 2rem; /* Adjust padding for better responsiveness */
-    text-align: center;
-    color: #fff;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.cta-button {
-    padding: 1rem 2rem;
-    background-color: #e67e22;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-}
-
-.cta-button:hover {
-    background-color: #d35400;
-}
-
-/* Product Section */
-.products {
-    padding: 2rem;
-    background-color: #fff;
-}
-
-.products h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-}
-
-.product {
-    background-color: #f9f9f9;
-    padding: 1rem;
-    margin: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    text-align: center;
-    display: inline-block;
-    width: calc(33.333% - 2rem); /* Responsive product width */
-    box-sizing: border-box;
-}
-
-.product img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-}
-
-.product p {
-    margin: 0.5rem 0;
-    font-size: 1rem;
-}
-
-.product button {
-    padding: 0.5rem 1rem;
-    background-color: #e67e22;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.product button:hover {
-    background-color: #d35400;
-}
-
-/* Cart Section */
-.cart {
-    padding: 2rem;
-    background-color: #fff;
-}
-
-.cart h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-}
-
-#cartTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 2rem;
-}
-
-#cartTable th, #cartTable td {
-    padding: 1rem;
-    border: 1px solid #ddd;
-    text-align: center;
-}
-
-#cartSummary {
-    text-align: right;
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-#cartSummary button {
-    padding: 0.5rem 1.5rem;
-    background-color: #e67e22;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#cartSummary button:hover {
-    background-color: #d35400;
-}
-
-/* Search Section */
-.search {
-    padding: 2rem;
-    background-color: #fff;
-}
-
-.search h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-}
-
-.search input[type="text"] {
-    width: 80%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.search button {
-    padding: 0.5rem 1rem;
-    background-color: #e67e22;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.search button:hover {
-    background-color: #d35400;
-}
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-    position: relative; /* Changed to relative for better scrolling */
-    width: 100%;
-}
-
-footer p {
-    margin: 0;
-    font-size: 0.875rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-list {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-list li {
-        margin: 0.5rem 0;
-    }
-
-    .product {
-        width: calc(50% - 2rem); /* Two products per row on medium screens */
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero p {
-        font-size: 1.25rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .product {
-        width: calc(100% - 2rem); /* One product per row on small screens */
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .search-container input[type="text"] {
-        width: 100%;
-    }
-}
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    padding-top: 60px; /* Space for fixed header */
 }
 
 /* Header styling */
@@ -317,7 +14,7 @@ header {
     background-color: #333;
     color: white;
     padding: 10px;
-    position: fixed; /* Make the header fixed */
+    position: fixed; /* Fixed header */
     width: 100%;
     top: 0;
     left: 0;
@@ -345,13 +42,15 @@ nav ul li a {
 /* Cart section styling */
 .cart {
     padding: 20px;
-    margin-top: 60px; /* Add margin-top to avoid overlap with fixed header */
+    margin-top: 20px; /* Add margin-top to avoid overlap with fixed header */
+    background-color: #fff;
 }
 
 /* Table styling */
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 20px;
 }
 
 th, td {
@@ -418,7 +117,18 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
-    position: relative;
+    position: relative; /* Adjusted to relative for proper placement */
     width: 100%;
     bottom: 0;
+}
+
+/* Ensure footer is always at the bottom */
+html, body {
+    height: 100%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
