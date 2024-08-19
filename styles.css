@@ -91,7 +91,7 @@ header {
 
 /* Hero Section */
 .hero {
-    background-image: url('background.jpg');
+    background-image: url('images/background.jpg');
     background-size: cover;
     background-position: center;
     padding: 5rem 2rem; /* Adjust padding for better responsiveness */
@@ -303,4 +303,122 @@ footer p {
     .search-container input[type="text"] {
         width: 100%;
     }
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Header styling */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    position: fixed; /* Make the header fixed */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure header is above other content */
+}
+
+/* Navigation styling */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; /* Ensure items wrap on smaller screens */
+}
+
+nav ul li {
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Cart section styling */
+.cart {
+    padding: 20px;
+    margin-top: 60px; /* Add margin-top to avoid overlap with fixed header */
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+img {
+    max-width: 100px; /* Make images responsive */
+    height: auto;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Checkout button styling */
+#checkoutButton {
+    background-color: #4CAF50;
+    color: white;
+    margin-top: 20px; /* Add margin-top for spacing */
+    display: block;
+    width: 100%;
+}
+
+#checkoutButton:hover {
+    background-color: #45a049;
+}
+
+/* Media Query for mobile devices */
+@media (max-width: 768px) {
+    table, th, td {
+        display: block;
+        width: 100%;
+    }
+
+    th, td {
+        box-sizing: border-box;
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        position: sticky;
+        top: 0;
+    }
+
+    img {
+        max-width: 80px;
+    }
+}
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
 }
